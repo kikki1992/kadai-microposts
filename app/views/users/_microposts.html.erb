@@ -1,0 +1,14 @@
+<ul class="list-unstyled">
+  <% microposts.each do |micropost| %>
+    <li class="media">
+
+      <img class="mr-2 mb-2 rounded" src="<%= gravatar_url(micropost.user, { size: 50 }) %>" alt="">
+      <div class="media-body">
+          <%= link_to micropost.user.name, user_path(micropost.user) %>
+          <div>
+            <%= micropost.content %>
+          </div>
+      </div>
+    </li>
+  <% end %>
+</ul>
