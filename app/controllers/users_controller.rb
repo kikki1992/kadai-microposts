@@ -44,6 +44,12 @@ class UsersController < ApplicationController
     @microposts = current_user.likes.page(params[:page])
   end
 
+  def like_posts
+    @user = User.find(params[:id])
+    @microposts = @user.likes.page(params[:page])
+    counts(@user)
+  end
+
   private
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation)
